@@ -11,15 +11,12 @@ body {
     text-align: center;
     background: #010101;
     font-family: sans-serif;
-    border: 3px solid gold;
-
 }
 
 .container {
     min-height: 100vh;
     margin: 0 auto;
     background: #f7f7f7;
-    border: 3px solid lime;
 }
 
 .container header {
