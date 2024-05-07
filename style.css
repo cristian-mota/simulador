@@ -218,3 +218,12 @@ input {
         border: 2px solid #000;
     }        
 }
+
+@media only screen and (max-width:425px) {
+     .container .wrapper_content .container_valor_supertroco .wrapper_buttons button {
+    padding: 8px 10px;
+    font-size: .800em;
+    border-radius: 3px;
+    cursor: pointer;
+    }   
+}
