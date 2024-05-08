@@ -8,13 +8,14 @@
 
 body {    
     min-height: 100vh;
+    padding: 5px 0;
     text-align: center;
     background: #010101;
     font-family: sans-serif;
+
 }
 
 .container {
-    min-height: 100vh;
     margin: 0 auto;
     background: #f7f7f7;
 }
@@ -28,7 +29,6 @@ body {
     width: 150px;
     padding: 10px;    
 }
-
 
 .container header h2 {
     font-size: 1.4em;
@@ -74,8 +74,7 @@ body {
     background: #fff;
 }
 
-.container .wrapper_content .container_valor_supertroco .wrapper_supertroco
-input {
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco input {
     width: 175px;
     line-height: 40px;
     padding: 5px 10px 0;
@@ -83,7 +82,7 @@ input {
     font-size: 1.8em;
     font-weight: 800;
     color: #31BF60;
-    border: 1px solid #000;
+    border: 2px solid rgba(0,0,0,0.1);
     outline: none;
     transition: ease-out .2s;
 }
@@ -110,7 +109,7 @@ input {
     background: #35CC66;    
 }
 .container .wrapper_content .container_valor_supertroco .wrapper_buttons button:nth-child(2) {
-    background: #FFC569;    
+    background: #ffbd52;    
 }
 
 
@@ -143,6 +142,14 @@ input {
     flex-direction: column;
     padding: 5px;
     border-radius: 3px;
+    /*border: 2px solid gold;*/
+}
+
+.container .wrapper_content .container_valor_supertroco .wrapper_awards > div {
+    width: 90%;
+    background: #fff;
+    padding: 5px;
+    margin: 5px auto;
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier span:nth-child(1) {
@@ -160,7 +167,8 @@ input {
     background: #EBEEEC;
 }
 
-.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award > div {   
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award > div {
+    width: 40%;
     background: #fff;
 }
 
@@ -172,14 +180,7 @@ input {
     border-radius: 3px;
     color: #35CC66;
     font-weight: 700;
-    font-size: 1.3em;
-}
-
-.container .wrapper_content .container_valor_supertroco .wrapper_awards > div {
-    width: 90%;
-    background: #fff;
-    padding: 5px;
-    margin: 5px auto;
+    font-size: 1.3rem;
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_head,
@@ -213,15 +214,7 @@ input {
 
 @media only screen and (min-width:520px) {
     .container {
-        width: 470px;
+        width: 470px;       
+        border: 2px solid #000;
     }        
-}
-
-@media only screen and (max-width:425px) {
-     .container .wrapper_content .container_valor_supertroco .wrapper_buttons button {
-    padding: 8px 10px;
-    font-size: .800em;
-    border-radius: 3px;
-    cursor: pointer;
-    }   
 }
