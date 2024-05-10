@@ -38,6 +38,7 @@ body {
 .container header h2 {
     font-size: 1.4em;
     margin: 10px 0;
+    color: rgb(155, 155, 155);
 }
 
 .container .wrapper_content {
