@@ -145,15 +145,18 @@ body {
 .container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier {
     display: flex;
     flex-direction: column;
-    padding: 5px;
     border-radius: 3px;
-    /*border: 2px solid gold;*/
+    border: 3px solid #fff;
+}
+
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier {
+    padding: 3px;
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards > div {
     width: 90%;
     background: #fff;
-    padding: 5px;
+    padding: 0px;
     margin: 5px auto;
 }
 
@@ -168,9 +171,10 @@ body {
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award {
-    padding: 5px;
+    padding: 0px;
     border-radius: 3px;
     background: #EBEEEC;
+    /*border: 1px solid red;*/
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award > div {
