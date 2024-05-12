@@ -25,6 +25,15 @@ body {
     background: #f7f7f7;
 }
 
+.container #constrast {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 4px);
+    transition: ease .4s;
+}
+
 .container header {
     display: flex;
     flex-direction: column;
@@ -150,6 +159,7 @@ body {
     border-radius: 50%;
     background: #fff;    
     border: 3px solid #FFC569;
+    z-index: 10;
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards,
