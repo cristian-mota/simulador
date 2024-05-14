@@ -160,6 +160,7 @@ body {
     background: #fff;    
     border: 3px solid #FFC569;
     z-index: 10;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) .3s;
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards,
