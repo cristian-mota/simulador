@@ -1,5 +1,5 @@
 let inputTroco = document.getElementById("money");
-let simular = document.getElementById('simula');
+let simularNum = document.getElementById('simula');
 let ContainerPrincipal = document.querySelector('.container')
 let labelTroco = document.querySelector(".wrapper_supertroco label");
 let wrapperNumbers = document.querySelectorAll('.wrapper_numbers span');
@@ -15,9 +15,11 @@ inputTroco.value = "";
 premio1.textContent = 'R$ 0,00';
 premio2.textContent = 'R$ 0,00';
 premio3.textContent = 'R$ 0,00';
+
+// Evento que formata a entrada para o tipo monetário.
 inputTroco.addEventListener("input", function (event) {
    var data = event.target.value.replace(/\D/g, "");
-   data = data.slice(0, 4); // Limitar o valor a 4 dígitos
+   data = data.slice(0, 4); // Limita o valor a 4 dígitos
    data = (data / 100).toFixed(2);
    data = data.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
    event.target.value = data.replace(".", ",");
@@ -30,12 +32,14 @@ inputTroco.addEventListener("input", function (event) {
    awardChange(multiplicador3, premio3);
 });
 
+// ao focar o input, o label sobe para a parte superior
 inputTroco.addEventListener("focus", function (event) {
    if (event.target.value !== "0,00") {
       labelTroco.classList.add("action_label");
    }
 });
 
+// o input ao perder o foco, o label desce novamente
 inputTroco.addEventListener("blur", function (event) {
    if (event.target.value == "") {
       labelTroco.classList.remove("action_label");
@@ -57,18 +61,41 @@ function awardChange(x, award) {
    award.textContent = result;
 }
 
-
-simular.addEventListener('click', generatorNum);
-
-
-
-
+simularNum.addEventListener('click', generatorNum);
 function generatorNum() {
-   console.log(wrapperNumbers)
-   console.log(wrapperNumbers)
+   // adiciona position relative em todos os 6 numeros da sorte.
    wrapperNumbers.forEach(num => {
       num.style.position = 'relative';
    })
+   // cria um número da sorte de 6 digitos e armazena em um array.
+   numeroAleatorio = Math.floor(100000 + Math.random() * 900000);
+   let numSorte = Array.from(String(numeroAleatorio), Number)
+
+   console.log(numSorte)
+
+   function AnimationNumbers(content, scale) {
+      wrapperNumbers.forEach((num, index) => {
+         setTimeout(() => {
+            if (content == '') { num.textContent = content } else {
+               for (let i = 0; i < 6; i++) {
+                  setTimeout(() => { wrapperNumbers[i].textContent = numSorte[i] }, i * 100);
+               }
+            }
+            num.style.transform = scale;
+         }, index * 100)
+      }) // fim forEach
+   } // fim function AnimationNumbers
+
+   AnimationNumbers('', 'scale(.5)')
+
+   setTimeout(() => {
+      AnimationNumbers('item', 'scale(1)')
+   }, 600)
+
+
+
+
+   // cria uma div que cobre todo o container, exceto os 6 números.
    ContainerPrincipal.insertAdjacentHTML('beforeend', '<div id="constrast"></div>')
    setTimeout(() => { document.getElementById('constrast').style.background = 'rgba(0,0,0,0.4)'; }, 50)
-}
+} // Fim função generatorNum
