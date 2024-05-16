@@ -71,9 +71,35 @@ body {
   /*border: 1px solid green;*/
 }
 
-.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .validation {  
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .showmsg {
+  animation: show ease 0.8s forwards;
+}
+
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .hidemsg {
+  animation: hide ease 0.8s forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .validation div {
   width: max-content;
-  height: max-content;  
+  height: max-content;
   padding: 3px 10px;
   color: #fff;
   position: absolute;
@@ -81,28 +107,24 @@ body {
   left: 50%;
   transform: translateX(-50%);
   border-radius: 3px;
-  background: rgb(255, 136, 100);
+  background: rgb(216, 166, 2);
   z-index: 8;
 }
 
-.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .validation::after {
-  content: '';
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .validation div::after {
+  content: "";
   display: inline;
   width: 10px;
-  height: 10px;  
+  height: 10px;
   position: absolute;
   left: 50%;
   bottom: -8px;
   transform: rotate(45deg) translateX(-50%);
-  background: rgb(255, 136, 100);
+  background: rgb(216, 166, 2);
   z-index: -1;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_supertroco
-  label {
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco label {
   position: absolute;
   top: calc(50% + 3px);
   left: 50%;
@@ -113,11 +135,7 @@ body {
   pointer-events: none;
   transition: all ease-in 100ms;
 }
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_supertroco
-  .action_label {
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco .action_label {
   top: 15px;
   left: 40%;
   padding: 0 5px;
@@ -126,11 +144,7 @@ body {
   background: #fff;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_supertroco
-  input {
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco input {
   width: 175px;
   line-height: 40px;
   padding: 5px 10px 0;
@@ -145,16 +159,8 @@ body {
   appearance: textfield; /*remove os spins do firefox*/
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_supertroco
-  input::-webkit-inner-spin-button,
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_supertroco
-  input::-webkit-outer-spin-button {
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco input::-webkit-inner-spin-button,
+.container .wrapper_content .container_valor_supertroco .wrapper_supertroco input::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
@@ -166,11 +172,7 @@ body {
   /*border: 1px solid red;*/
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_buttons
-  button {
+.container .wrapper_content .container_valor_supertroco .wrapper_buttons button {
   border: none;
   color: #fff;
   font-size: 1em;
@@ -181,40 +183,20 @@ body {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_buttons
-  button:nth-child(1) {
+.container .wrapper_content .container_valor_supertroco .wrapper_buttons button:nth-child(1) {
   background: #35cc66;
 }
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_buttons
-  button:nth-child(1):hover {
+.container .wrapper_content .container_valor_supertroco .wrapper_buttons button:nth-child(1):hover {
   background: #029d33;
 }
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_buttons
-  button:nth-child(1):disabled {
+.container .wrapper_content .container_valor_supertroco .wrapper_buttons button:nth-child(1):disabled {
   background: gray;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_buttons
-  button:nth-child(2) {
+.container .wrapper_content .container_valor_supertroco .wrapper_buttons button:nth-child(2) {
   background: #ffbd52;
 }
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_buttons
-  button:nth-child(2):hover {
+.container .wrapper_content .container_valor_supertroco .wrapper_buttons button:nth-child(2):hover {
   background: #d68503;
 }
 
@@ -242,41 +224,17 @@ body {
 }
 
 .container .wrapper_content .container_valor_supertroco .wrapper_awards,
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  .award_one,
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  .award_two,
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  .award_tree,
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award
-  .wrapper_multiplier {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards .award_one,
+.container .wrapper_content .container_valor_supertroco .wrapper_awards .award_two,
+.container .wrapper_content .container_valor_supertroco .wrapper_awards .award_tree,
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier {
   display: flex;
   flex-direction: column;
   border-radius: 3px;
   border: 3px solid #fff;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award
-  .wrapper_multiplier {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier {
   padding: 3px;
 }
 
@@ -287,60 +245,29 @@ body {
   margin: 5px auto;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award
-  .wrapper_multiplier
-  span:nth-child(1) {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier span:nth-child(1) {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award
-  .wrapper_multiplier
-  span:nth-child(2) {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_multiplier span:nth-child(2) {
   color: #ffc569;
   font-size: 1.3rem;
   font-weight: 700;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award {
   padding: 0px;
   border-radius: 3px;
   background: #ebeeec;
   /*border: 1px solid red;*/
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award
-  > div {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award > div {
   width: 40%;
   background: #fff;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award
-  .wrapper_award {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award .wrapper_award {
   min-width: 150px;
   display: grid;
   place-items: center;
@@ -351,53 +278,24 @@ body {
   font-size: 1.5rem;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_head,
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_multiplier_award {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_head,
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_multiplier_award {
   display: flex;
   justify-content: space-between;
   padding: 4px;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_head
-  > span {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_head > span {
   color: gray;
   font-size: 1.2em;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_head
-  .wrapper_lucky_number {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_head .wrapper_lucky_number {
   display: flex;
   gap: 3px;
 }
 
-.container
-  .wrapper_content
-  .container_valor_supertroco
-  .wrapper_awards
-  div
-  .wrapper_head
-  .wrapper_lucky_number
-  span {
+.container .wrapper_content .container_valor_supertroco .wrapper_awards div .wrapper_head .wrapper_lucky_number span {
   display: grid;
   place-items: center;
   font-size: 0.85em;
