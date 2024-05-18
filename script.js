@@ -13,9 +13,12 @@ let premio3 = document.getElementById("award-3");
 
 inputTroco.type = "tel";
 inputTroco.value = "";
-premio1.textContent = "R$ 0,00";
-premio2.textContent = "R$ 0,00";
-premio3.textContent = "R$ 0,00";
+function reset() {
+  premio1.textContent = "R$ 0,00";
+  premio2.textContent = "R$ 0,00";
+  premio3.textContent = "R$ 0,00";
+}
+reset();
 
 // Evento que formata a entrada para o tipo monetário.
 inputTroco.addEventListener("input", function (event) {
@@ -28,11 +31,20 @@ inputTroco.addEventListener("input", function (event) {
   if (trocoMax >= "9.99") {
     event.target.value = "10,00";
   }
-  awardChange(multiplicador1, premio1);
-  awardChange(multiplicador2, premio2);
-  awardChange(multiplicador3, premio3);
+  if (event.target.value >= "0,10") {
+    awardChange(multiplicador1, premio1);
+    awardChange(multiplicador2, premio2);
+    awardChange(multiplicador3, premio3);
+  } else {
+    reset();
+  }
   valueMinMax(event.target.value);
 });
+
+/* wrapperTroco.style.opacity = "0"; */
+
+wrapperTroco.insertAdjacentHTML("beforeend", '<div class="validation hidemsg"><div><span>valor mínimo: <b>R$ 0,10</b></span></div></div>');
+
 // ao focar o input, o label sobe para a parte superior
 inputTroco.addEventListener("focus", function (event) {
   if (event.target.value !== "0,00") {
@@ -53,19 +65,21 @@ inputTroco.addEventListener("blur", function (event) {
 
 function valueMinMax(troco) {
   let validationElement = document.querySelector(".validation");
-  if (!validationElement) {
-    wrapperTroco.insertAdjacentHTML("beforeend", '<div class="validation"><div><span>valor mínimo: <b>R$ 0,10</b></span></div></div>');
-  }
+
   if (troco.replace(",", ".") <= 0.0) {
-    if (validationElement) {
-      validationElement.classList.remove("showmsg");
-      validationElement.classList.add("hidemsg");
-    }
-  } else if (troco.replace(",", ".") <= 0.09) {
-    if (validationElement) {
-      validationElement.classList.add("showmsg");
-      validationElement.classList.remove("hidemsg");
-    }
+    setTimeout(() => {
+      if (inputTroco.value.replace(",", ".") <= 0.0) {
+        validationElement.classList.remove("showmsg");
+        validationElement.classList.add("hidemsg");
+      }
+    }, 500);
+  } else if (inputTroco.value.replace(",", ".") <= 0.09) {
+    setTimeout(() => {
+      if (inputTroco.value.replace(",", ".") <= 0.09) {
+        validationElement.classList.add("showmsg");
+        validationElement.classList.remove("hidemsg");
+      }
+    }, 300);
   } else {
     validationElement.classList.remove("showmsg");
     validationElement.classList.add("hidemsg");
@@ -134,7 +148,7 @@ function generatorNum() {
           document.getElementById("constrast").remove();
           simularNum.disabled = false;
           execute = false;
-        }, 300);
+        }, 500);
     }, temp);
   }
 } // Fim função generatorNum
