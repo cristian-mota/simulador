@@ -1,0 +1,65 @@
+
+.container .enterNum {    
+   min-width: 320px;
+   position: absolute;
+   top: 50px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: max-content;
+   padding: 20px 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border: 1px solid gray;
+   background: #EBEEEC;
+}
+
+.container .wrapperInput {
+ position: relative;
+ margin: 15px auto;
+ padding: 15px 20px;
+ background: rgb(255, 255, 255);
+ border-radius: 3px;
+ /*border: 1px solid green;*/
+}
+
+.container .enterNum .wrapperInput input {
+ width: 90%;  
+ text-align: center;
+ line-height: 1.3em;
+ font-size: 1.2em;
+ font-weight: 800;
+ color: #31bf60;
+ background: #fff;
+ border: 2px solid rgba(0, 0, 0, 0.1);
+ outline: none;
+ transition: ease-out 0.2s;
+ appearance: textfield; /*remove os spins do firefox*/
+}
+
+.container .enterNum label {
+ position: absolute;
+ top: 50% ;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ font-size: .800em;
+ text-transform: uppercase;
+ white-space: nowrap;
+ color: silver;
+ pointer-events: none;
+ transition: all ease-in 100ms;
+}
+
+.container .enterNum button {
+   border: none;
+   color: #fff;
+   font-size: 1em;
+   font-weight: bold;
+   padding: 10px 16px;
+   border-radius: 3px;
+   cursor: pointer;
+   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+   background: #35cc66
+}
+
