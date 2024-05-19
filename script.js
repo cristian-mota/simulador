@@ -1,5 +1,6 @@
 let inputTroco = document.getElementById("money");
 let simularNum = document.getElementById("simula");
+let digitarNum = document.getElementById("digitar")
 let ContainerPrincipal = document.querySelector(".container");
 let wrapperTroco = document.querySelector(".wrapper_supertroco");
 let labelTroco = document.querySelector(".wrapper_supertroco label");
@@ -10,6 +11,11 @@ let multiplicador3 = document.getElementById("multi-3");
 let premio1 = document.getElementById("award-1");
 let premio2 = document.getElementById("award-2");
 let premio3 = document.getElementById("award-3");
+
+let numSorteOne = document.querySelectorAll('.award_one div:nth-child(1) div span')
+let numSorteTwo = document.querySelectorAll('.award_two div:nth-child(1) div span')
+let numSorteTree = document.querySelectorAll('.award_tree div:nth-child(1) div span')
+
 
 inputTroco.type = "tel";
 inputTroco.value = "";
@@ -41,8 +47,6 @@ inputTroco.addEventListener("input", function (event) {
    valueMinMax(event.target.value);
 });
 
-/* wrapperTroco.style.opacity = "0"; */
-
 wrapperTroco.insertAdjacentHTML("beforeend", '<div class="validation hidemsg"><div><span>valor mínimo: <b>R$ 0,10</b></span></div></div>');
 
 // ao focar o input, o label sobe para a parte superior
@@ -65,7 +69,8 @@ inputTroco.addEventListener("blur", function (event) {
 
 function valueMinMax(troco) {
    let validationElement = document.querySelector(".validation");
-  
+
+   console.log(inputTroco.value)
    if (inputTroco.value.replace(",", ".") <= 0.00) {
       setTimeout(() => {
          if (inputTroco.value.replace(",", ".") <= 0.00) {
@@ -125,7 +130,10 @@ function generatorNum() {
             num.style.transform = scale;
          }, index * 100);
       }); // fim forEach
-      setTimeout(() => { film("rgba(0,0,0,0.0)", 700, true) }, 500)
+      setTimeout(() => {
+         film("rgba(0,0,0,0.0)", 700, true)
+         changeNumbers()
+      }, 500)
    } // fim function AnimationNumbers
 
    AnimationNumbers("", "scale(.7)");
@@ -149,7 +157,40 @@ function generatorNum() {
                execute = false;
             }, 300);
          }
-
       }, temp);
    }
+
+
+   // Função que preenche o numero da sorte dos prêmios
+   function changeNumbers() {
+      setTimeout(() => {
+         //altera os numeros da sorte do 1º Prêmio
+         numSorteOne.forEach((num, index) => {
+            num.textContent = numSorte[index]
+         })
+         //altera os numeros da sorte do 2º Prêmio
+         numSorteTwo.forEach((num, index) => {
+            if (index > 0) { num.textContent = numSorte[index] }
+         })
+         //altera os numeros da sorte do 3º Prêmio
+         numSorteTree.forEach((num, index) => {
+            if (index > 1) { num.textContent = numSorte[index] }
+         })
+      }, 1000)
+   } // fim changeNumbers()
 } // Fim função generatorNum
+
+
+
+
+
+
+
+
+digitarNum.addEventListener('click', digitarNumero)
+function digitarNumero() {
+   ContainerPrincipal.insertAdjacentHTML("beforeend", '<div class="enterNum"><div class="wrapperInput"><input type="text"><label>Digitar número da Sorte</label></div><button>Confirnar</button></div>');
+
+
+
+}
