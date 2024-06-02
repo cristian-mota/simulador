@@ -57,6 +57,7 @@ body {
 }
 
 .container .wrapper_content .container_valor_supertroco {
+  min-height: 100vh;
   padding: 12px 0;
   overflow: auto;
 }
