@@ -12,7 +12,6 @@ html {
 
 body {
   min-height: 100vh;
-  padding: 5px 0;
   text-align: center;
   background: #010101;
   font-family: sans-serif;
@@ -311,7 +310,7 @@ body {
   border: 2px solid #e2e2e2;
 }
 
-@media only screen and (min-width: 520px) {
+@media only screen and (min-width: 720px) {
   .container {
     width: 470px;
     border: 2px solid #000;
